@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<p:commandButton value="initOnPageLoad" actionListener="#{testController.initOnPageLoad}"
+		update=":frmContent"></p:commandButton>
+	<p:panel rendered="#{testController.show}">
+		<p:panelGrid columns="2" columnClasses="ui-grid-col-3,ui-grid-col-9"
+			layout="grid" styleClass="ui-panelgrid-blank">
+			<c:forEach items="#{testController.objectives}" var="objective">
+				<p:outputLabel value="Objective Desc"></p:outputLabel>
+				<p:panelGrid columns="3" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-9"
+					layout="grid" styleClass="ui-panelgrid-blank">
+					<c:forEach items="#{objective.activities}" var="activity">
+						<p:outputLabel value="Activity Desc"></p:outputLabel>
+						<p:outputLabel value="Weightage"></p:outputLabel>
+						<p:panelGrid columns="3" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
+							layout="grid" styleClass="ui-panelgrid-blank">
+							<p:outputLabel value="Measurement Scale"></p:outputLabel>
+							<p:outputLabel value=""></p:outputLabel>
+							<p:outputLabel value=""></p:outputLabel>
+							<c:forEach items="#{activity.measurementScales}" var="measurementScale">
+								<p:outputLabel value=""></p:outputLabel>
+								<p:outputLabel value="Range"></p:outputLabel>
+								<p:outputLabel value="Status"></p:outputLabel>
+							</c:forEach>
+						</p:panelGrid>
+					</c:forEach>
+				</p:panelGrid>
+			</c:forEach>
+		</p:panelGrid>
+	</p:panel>
+	<style>
+		.ui-panelgrid .ui-panelgrid-cell{
+			border: 1px solid black !important;
+		}
+	</style>
+</ui:composition>

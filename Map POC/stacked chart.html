@@ -1,0 +1,137 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+		<style>
+			#chartdiv {
+			  width: 100%;
+			  height: 500px;
+			}												
+		</style>
+		<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+		<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+		<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+		<script>
+			var jsonData = [ {
+				"year": 2003,
+				"europe": 2.5,
+				"namerica": 2.5,
+				"asia": 2.1,
+				"lamerica": 1.2,
+				"meast": 0.2,
+				"africa": 0.1
+			  }, {
+				"year": 2004,
+				"europe": 2.6,
+				"namerica": 2.7,
+				"asia": 2.2,
+				"lamerica": 1.3,
+				"meast": 0.3,
+				"africa": 0.1
+			  }, {
+				"year": 2005,
+				"europe": 2.8,
+				"namerica": 2.9,
+				"asia": 2.4,
+				"lamerica": 1.4,
+				"meast": 0.3,
+				"africa": 0.1
+			  } ];
+			  
+			var parameterFor3D = [ {
+				"balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas": 0.8, <!-- Visibility of column for this parameter-->
+				"lineAlpha": 0.3,
+				"type": "column", <!-- Type of Graph for this parameter-->
+				"color": "#000000", <!-- Color of column for this parameter-->
+				"title": "Europe", <!-- Title for this parameter-->
+				"labelText": "[[value]]", <!-- Label on column for this parameter-->
+				"valueField": "europe" <!-- Identifier name in JSON for this parameter-->
+			  }, {
+				"balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas": 0.8,
+				"labelText": "[[value]]",
+				"lineAlpha": 0.3,
+				"title": "North America",
+				"type": "column",
+				"color": "#000000",
+				"valueField": "namerica"
+			  }, {
+				"balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas": 0.8,
+				"labelText": "[[value]]",
+				"lineAlpha": 0.3,
+				"title": "Asia-Pacific",
+				"type": "column",
+				"newStack": true,
+				"color": "#000000",
+				"valueField": "asia"
+			  }, {
+				"balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas": 0.8,
+				"labelText": "[[value]]",
+				"lineAlpha": 0.3,
+				"title": "Latin America",
+				"type": "column",
+				"color": "#000000",
+				"valueField": "lamerica"
+			  }, {
+				"balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas": 0.8,
+				"labelText": "[[value]]",
+				"lineAlpha": 0.3,
+				"title": "Middle-East",
+				"type": "column",
+				"color": "#000000",
+				"valueField": "meast"
+			  }, {
+				"balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas": 0.8,
+				"labelText": "[[value]]",
+				"lineAlpha": 0.3,
+				"title": "Africa",
+				"type": "column",
+				"color": "#000000",
+				"valueField": "africa"
+			  } ];
+			function showChart(){
+			var chart = AmCharts.makeChart( "chartdiv", {
+			  "type": "serial",
+			  "hideCredits":true,
+			  "theme": "light",
+			  "depth3D": 20,
+			  "angle": 30,
+			  "categoryField": "year",
+			  "legend": {
+				"horizontalGap": 10,
+				"useGraphSettings": true,
+				"markerSize": 10
+			  },
+			  "valueAxes": [ {
+				"stackType": "regular",
+				"position": "left",
+				"axisAlpha": 0,
+				"gridAlpha": 0,
+				"title":"No of Objects"
+			  } ],
+			  "categoryAxis": {
+				"gridPosition": "start",
+				"axisAlpha": 0,
+				"gridAlpha": 0,
+				"position": "left",
+				"labelRotation": 60
+			  },
+			  "export": {
+				"enabled": true
+			  },
+			  "dataProvider": jsonData,
+			  "graphs": parameterFor3D
+			} );
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="Show Chart" onclick="showChart();">
+		<div id="chartdiv"></div>
+	</body>
+</html>

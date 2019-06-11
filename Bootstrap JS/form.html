@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>FORM</title>
+<link rel="shortcut icon" href="images/icons/aa.png"/>
+<script>
+function myFunction() {
+if(document.getElementById("name").value !=""){
+	document.getElementById("response").style.display = "block";
+    document.getElementById("name0").innerHTML = document.getElementById("name").value;
+    document.getElementById("designation0").innerHTML = document.getElementById("designation").value;
+    document.getElementById("project0").innerHTML = document.getElementById("project").value;
+    document.getElementById("car0").innerHTML = document.getElementById("car").value;
+}
+}
+</script>
+<style>
+.textBox{
+	background-color:green;
+	color:yellow;
+}
+.requiredBox{
+	background-color:red;
+	color:yellow;
+}
+.fieldBox{
+	background-color:blue;
+	color:yellow;
+}
+.table {
+width: 25%;
+
+}
+</style>
+</head>
+<body style="background-color:black; color:white">
+<div>
+<h1 align="center">Hello User<h1>
+<h5 align="center">This form will display data you entered with the help of javascript when submitting it.</h5>
+</div>
+<h3 align="center" style="color:#418684;font-weight:bold">Please insert your details:</h3><br>
+<div class="table-responsive">
+<table align="center" class="table table-bordered">
+<tr><td class="fieldBox">Name:</td><td><input type="text" id="name" class="requiredBox"></td></tr>
+<tr><td class="fieldBox">Designation:</td><td><input type="text" id="designation" class="requiredBox"></td></tr>
+<tr><td class="fieldBox">Project:</td><td><input type="text" id="project" class="requiredBox"></td></tr>
+<tr><td class="fieldBox">Car: </td>
+<td><select id="car" class="requiredBox">
+  <option value="">-----
+  <option value="Audi">Audi
+  <option value="BMW">BMW
+  <option value="Mercedes">Mercedes
+  <option value="Volvo">Volvo
+</select>
+</td></tr>
+<tr><td colspan="2" align="center"><input type="button" value="Submit" onclick="myFunction()" class="btn btn-success"></td></tr>
+</table>
+</div>
+<h3 align="center" style="color:#418684;font-weight:bold">Your Details are:</h3><br>
+<div  align="center">
+<table class="table table-bordered" style="display:none" id="response">
+<tr><td class="fieldBox">Name:</td><td id="name0" class="textBox"/></tr>
+<tr><td class="fieldBox">Designation:</td><td id="designation0" class="textBox"/></tr>
+<tr><td class="fieldBox">Project:</td><td id="project0" class="textBox"/></tr>
+<tr><td class="fieldBox">Car:</td><td id="car0" class="textBox"/></tr>
+</table>
+</div>
+</body>
+</html>

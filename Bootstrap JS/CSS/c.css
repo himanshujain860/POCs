@@ -1,0 +1,20 @@
+h1 {color:red;}
+p {color:blue;}
+span
+{	color:gray;
+	background-color:yellow;
+	text-align:center;
+	font-size:25px;
+}
+div
+{	
+	background-color:Silver;
+	font-size:30px;
+	text-align:center;
+}
+.bu
+{
+	height:30px;
+	width:100px; 
+	font-size:20px;
+}

@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+		<script src="https://www.amcharts.com/lib/3/maps/js/indiaLow.js"></script>
+
+		<script>
+			var x="Selected states are:";
+			function makeChart(){
+				var map = AmCharts.makeChart( "mapdiv", {
+					"type": "map",
+					"panEventsEnabled": true,
+					"backgroundColor": "#666666",
+					"backgroundAlpha": 1,
+					"smallMap": {},
+					"hideCredits":true,
+					"dataProvider": {
+						"map": "indiaLow",
+						"areas": [ 
+							{id:"IN-DD", color:"yellow"},
+							{id:"IN-AN", color:"yellow"},
+							{id:"IN-DL", color:"yellow"},
+							{id:"IN-HP", color:"skyblue"},
+							{id:"IN-MP", color:"skyblue"},
+							{id:"IN-KA", color:"skyblue"},
+							{id:"IN-JH", color:"skyblue"},
+							{id:"IN-AS", color:"skyblue"},
+							{id:"IN-SK", color:"skyblue"},
+							{id:"IN-MH", color:"lightgreen"},
+							{id:"IN-JK", color:"lightgreen"},
+							{id:"IN-RJ", color:"lightgreen"},
+							{id:"IN-UT", color:"lightgreen"},
+							{id:"IN-TN", color:"lightgreen"},
+							{id:"IN-OR", color:"lightgreen"},
+							{id:"IN-BR", color:"lightgreen"},
+							{id:"IN-ML", color:"lightgreen"},
+							{id:"IN-TR", color:"lightgreen"},
+							{id:"IN-AR", color:"lightgreen"},
+							{id:"IN-MN", color:"lightgreen"},
+							{id:"IN-HR", color:"lightyellow"},
+							{id:"IN-GJ", color:"lightyellow"},
+							{id:"IN-CT", color:"lightyellow"},
+							{id:"IN-AP", color:"lightyellow"},
+							{id:"IN-PB", color:"pink"},
+							{id:"IN-UP", color:"pink"},
+							{id:"IN-GA", color:"pink"},
+							{id:"IN-KL", color:"pink"},
+							{id:"IN-TG", color:"pink"},
+							{id:"IN-WB", color:"pink"},
+							{id:"IN-MZ", color:"pink"},
+							{id:"IN-NL", color:"pink"}
+						],
+						"getAreasFromMap": true
+					},
+					"areasSettings": {
+						"autoZoom": false,
+						"color": "#CDCDCD",
+						"colorSolid": "#5EB7DE",
+						"selectedColor": "black",
+						"outlineColor": "#666666",
+						"rollOverColor": "#713a3a",
+						"rollOverOutlineColor": "#FFFFFF",
+						"selectable": true
+					},
+					"listeners": [ {
+						"event": "clickMapObject",
+						"method": function( event ) {
+							map.selectedObject = map.dataProvider;
+							event.mapObject.showAsSelected = !event.mapObject.showAsSelected;
+							map.returnInitialColor( event.mapObject );
+							var states = [];
+							for ( var i in map.dataProvider.areas ) {
+								var area = map.dataProvider.areas[ i ];
+									if ( area.showAsSelected ) {
+										states.push( area.title );
+									}
+							}
+							debugger;
+							x = x+event.mapObject.id+"-"+event.mapObject.title+', ';
+							document.getElementById("info").innerHTML = x;
+						}
+					} ]
+				} );
+				document.getElementById("mapdiv").style.visibility = "visible";
+			}
+			function reset(){
+				makeChart();
+				x="Selected states are:";
+				document.getElementById("info").innerHTML = "Selected State : No Selection";
+				document.getElementById("mapdiv").innerHTML = "";
+				document.getElementById("mapdiv").style.visibility = "hidden";
+			}
+		</script>
+	</head>
+	<body>
+		<div style="width: 100%">
+			<div style="width: 50%; float : left; margin-left:10px">
+				<div id="info">Selected State : No Selection</div>
+				<input type="button" value="Create" onclick="makeChart();" />
+				<input type="button" value="Reset" onclick="reset();" />
+			</div>
+			<div id="mapdiv" style="width: 40%; height: 80%; float : left; border : 10px solid black; visibility:hidden"></div>
+		</div>
+	</body>
+</html>			

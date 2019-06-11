@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>Himanshu Jain</title>
+<link rel="shortcut icon" href="images/icons/aa.png"/>
+<script src="JS/c.js">
+</script>
+<script>alert("Hello!!!!!!");</script>
+<link rel="stylesheet" type="text/css" href="CSS/c.css">
+<link rel="stylesheet" type="text/css" href="CSS/list.css">
+</head>
+<body bgcolor="black">
+<div>Select size for Data.<br>
+	<button onclick="Small()">Small</button>
+	<button onclick="Medium()">Medium</button>
+	<button onclick="Large()">Large</button>
+</div><br>
+<div align="center">Please Login.</div>
+<p align="center">
+<button type="button" onclick="dologin()" class="bu">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" onclick="dologout()" class="bu">Logout</button></p>
+<span id="logmessage" style="float:right"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="user"></span>
+<p align="center">
+<div>Please Select Your Car.</div><br>
+<select id="mySelect" onchange="myFunction()" class="bu">
+  <option value="">-----
+  <option value="Audi">Audi
+  <option value="BMW">BMW
+  <option value="Mercedes">Mercedes
+  <option value="Volvo">Volvo
+</select>&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="car" style="float:right"></span>
+</p>
+<div align="center">Please Select Image.<br>
+	<button onclick="document.getElementById('myImage').src='images/ONE.gif'">First</button>
+	<button onclick="document.getElementById('myImage').src='images/smiley.gif'">Second</button>
+	<button onclick="document.getElementById('myImage').src='images/Untitled.gif'">Third</button>
+	<button onclick="document.getElementById('myImage').src='images/hello.gif'">Home</button>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<select id="imgcode" onchange="imagechange()" class="bu">
+  <option value="">-----
+  <option value="one">Logo
+  <option value="untitled">Tiger
+  <option value="smiley">Smiley
+  <option value="home">Home
+</select>
+</div>
+<p align="center"><img id="myImage" src="images/hello.gif" style="width:500px"></p>
+<div>Find the Audio clip.</div>
+<p align="center">
+<audio controls>
+  <source src="media/awargi.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio></p>
+<div>Find the Video.</div>
+<p align="center">
+<video width="320" height="240" controls>
+  <source src="media/VID-20141130-WA0005.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video></p>
+<div>Find the Autofit Image.</div>
+<p align="center">
+<picture>
+  <source media="(min-width: 750px)" srcset="images/ONE.gif">
+  <source media="(min-width: 550px)" srcset="images/goodbye.gif">
+  <img src="images/chrome.gif" alt="Flowers" style="width:auto;">
+</picture>
+</p>
+<div>Click on icon to search.</div>
+<p align="center">
+<a href="https://www.google.co.in">
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="images/chrome.gif" width="32" height="32"/></a>
+</p>
+<div>Click on icon to contact us.</div>
+<div>
+<nav>
+	<ul>
+        <li>
+            <a href="#">Contact Me</a>
+            <ul>
+                <li><a href="https://www.facebook.com/himanshu.jain860">Facebook</a></li>
+                <li><a href="mailto:himanshu.jain860@gmail.com?subject=Questions" title="">Email</a></li>
+            </ul>
+        </li>
+        <li><a href="https://www.google.co.in">Search</a></li>
+    </ul>
+</nav>
+</div>
+<p align="center">
+<a href="https://www.facebook.com/himanshu.jain860">
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="images/fb.gif" width="32" height="32"/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="mailto:himanshu.jain860@gmail.com?subject=Questions" title="">
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="images/email.gif" width="32" height="32"/></a>
+</p>
+
+</body>
+</html>

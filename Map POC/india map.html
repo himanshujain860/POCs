@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/ammap.js"></script>
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/indiaLow.js"></script>
+		<script type="text/javascript">
+			var indiaMap = AmCharts.makeChart("map",{
+					"type": "map",
+					"pathToImages": "http://www.amcharts.com/lib/3/images/",
+					"addClassNames": true,
+					"hideCredits":true,
+					"fontSize": 15,
+					"color": "#000000",
+					"projection": "equirectangular",
+					"backgroundAlpha": 1,
+					"backgroundColor": "rgba(115,130,234,1)",
+					"smallMap": {},
+					"dataProvider": {
+						"map": "indiaLow",
+						"getAreasFromMap": true,
+					},
+					"balloon": {
+						"horizontalPadding": 15,
+						"borderAlpha": 0,
+						"borderThickness": 1,
+						"verticalPadding": 15
+					},
+					"areasSettings": {
+						"color": "brown",
+						"outlineColor": "rgba(115,130,234,1)",
+						"rollOverOutlineColor": "rgba(115,130,234,1)",
+						"rollOverBrightness": 100,
+						"selectedColor": "#5EB7DE",
+						"selectable": true,
+						"unlistedAreasAlpha": 0,
+						"unlistedAreasOutlineAlpha": 0
+					},
+					"imagesSettings": {
+						"alpha": 1,
+						"color": "rgba(57,57,57,1)",
+						"outlineAlpha": 0,
+						"rollOverOutlineAlpha": 0,
+						"outlineColor": "rgba(115,130,234,1)",
+						"rollOverBrightness": 20,
+						"selectedBrightness": 20,
+						"selectable": true
+					},
+					"linesSettings": {
+						"color": "rgba(57,57,57,1)",
+						"selectable": true,
+						"rollOverBrightness": 20,
+						"selectedBrightness": 20
+					}
+				});
+				
+				indiaMap.addListener("clickMapObject", function(event) {
+					document.getElementById("info").innerHTML = 'Selected State : ('+event.mapObject.title+')';
+				});
+		</script>
+	</head>
+	<body>
+		<div style="width: 100%">
+			<div id="map" style="width: 40%; height: 80%; float : left; border : 10px solid black"></div>
+			<div id="info" style="width: 50%; float : left">Selected State : No Selection </div>
+		</div>
+	</body>
+</html>

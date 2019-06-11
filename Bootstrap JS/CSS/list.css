@@ -1,0 +1,40 @@
+nav a { 
+    text-decoration: none;
+    font: 12px/1 Times New Roman;
+    color: red;
+    display: block; }
+
+nav a:hover { text-decoration: underline;}
+
+nav ul { 
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+
+nav ul li { margin: 0; padding: 0; }
+
+/* Top-level menu */
+nav > ul > li { 
+    float: left;
+    position: relative;
+    background-color: black;	}
+nav > ul > li > a { 
+    padding: 10px 30px;
+    border-left: 1px solid #000;
+    display: block;}
+nav > ul > li:first-child { margin: 0; }
+nav > ul > li:first-child a { border: 0; }
+
+/* Dropdown Menu */
+nav ul li ul { 
+    position: absolute;
+    background: #ccc;
+    width: 100%; 
+    margin: 0;
+    padding: 0;
+    display: none; }
+nav ul li ul li { 
+    text-align: center;
+    width: 100%; }
+nav ul li ul a { padding: 10px 0; }
+nav ul li:hover ul { display: block; }
